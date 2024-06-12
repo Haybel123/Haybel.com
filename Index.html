@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAYBEL HANCHACHA's Repository</title>
+    <style>
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --header-bg: #4CAF50;
+            --nav-bg: #333;
+            --card-bg: #ffffff;
+            --footer-bg: #333;
+            --menu-icon-color: white;
+            --primary-color: #4CAF50;
+            --secondary-color: #ff9800;
+            --accent-color: #03a9f4;
+        }
+        [data-theme="dark"] {
+            --background-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #1a1a1a;
+            --nav-bg: #1a1a1a;
+            --card-bg: #1e1e1e;
+            --footer-bg: #1a1a1a;
+            --menu-icon-color: #e0e0e0;
+            --primary-color: #4CAF50;
+            --secondary-color: #ff9800;
+            --accent-color: #03a9f4;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background: var(--nav-bg);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+        .main-content {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 10px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            border-color: var(--secondary-color);
+        }
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: var(--menu-icon-color);
+        }
+        .toggle-btn {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            cursor: pointer;
+            background-color: var(--menu-icon-color);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 18px;
+            color: var(--nav-bg);
+            z-index: 9999;
+        }
+        .section-header {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--primary-color);
+        }
+        .skills {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .skill {
+            background: var(--card-bg);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-basis: 30%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                padding: 15px;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid #444;
+                border-bottom: 1px solid #444;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .gallery img {
+                width: 150px;
+                height: 150px;
+            }
+            .toggle-btn {
+                top: 60px;
+           
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery img {
+                width: 100px;
+                height: 100px;
+            }
+            .skill {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>HAYBEL HANCHACHA</h1>
+        <p>Grade Nine Student at Hayole Education Project</p>
+        <p>Hawaasa City</p>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <button class="toggle-btn" onclick="toggleTheme()">☀️</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="about" class="main-content">
+        <h2 class="section-header">About Me</h2>
+        <p>Hello! My name is HAYBEL HANCHACHA. I am a grade nine student at Hayole Education Project in Hawaasa City. I enjoy making software and websites. This is my personal repository where I showcase my projects.</p>
+    </section>
+
+    <section id="projects" class="main-content">
+        <h2 class="section-header">Projects</h2>
+        <div class="card">
+            <h3>Project 1: Website Design</h3>
+            <p>This project is a responsive website designed for small businesses. It includes multiple pages, a contact form, and a gallery.</p>
+        </div>
+        <div class="card">
+            <h3>Project 2: Software Application</h3>
+            <p>This project is a desktop application developed to manage school schedules. It includes features like timetable management, notifications, and a user-friendly interface.</p>
+        </div>
+        <!-- Add more projects as needed -->
+    </section>
+
+    <section id="skills" class="main-content">
+        <h2 class="section-header">Skills</h2>
+        <div class="skills">
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Proficient in creating structured and semantic web pages using HTML.</p>
+            </div>
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Experienced in styling web pages with CSS, including layout techniques and responsive design.</p>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <p>Skilled in adding interactivity and dynamic content to websites using JavaScript.</p>
+            </div>
+            <!-- Add more skills as needed -->
+        </div>
+    </section>
+
+    <section id="gallery" class="main-content">
+        <h2 class="section-header">Gallery</h2>
+        <div class="gallery">
+            <!-- Add your images here -->
+            <img src="Screenshot_20240611-143837.jpg" alt="Product 1">
+            <img src="Screenshot_20240611-144045.jpg" alt="Product 2">
+            <img src="Screenshot_20240611-144149.jpg" alt="Product 3">
+            <img src="Screenshot_20240611-144315.jpg" alt="Product 3">
+            <img src="xn.jpg" alt="Product 3">
+            <img src="zx.jpg" alt="Product 3">
+        </div>
+    </section>
+
+    <section id="contact" class="main-content">
+        <h2 class="section-header">Contact</h2>
+        <div class="contact-box">
+            <p>For inquiries or collaboration, you can reach me at:</p>
+            <p><strong>Email:</strong> <a href="mailto:haybelman33@gmail.com">haybelman33@gmail.com</a></p>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 HAYBEL. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        if (nav.style.display === 'flex') {
+            nav.style.display = 'none';
+        } else {
+            nav.style.display = 'flex';
+        }
+    }
+
+    function toggleTheme() {
+        var body = document.body;
+        var theme = body.getAttribute('data-theme');
+        if (theme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            document.querySelector('.toggle-btn').textContent = '☀️';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            document.querySelector('.toggle-btn').textContent = '🌙';
+        }
+    }
+</script>
+
+</body>
+</html>
